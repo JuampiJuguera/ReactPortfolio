@@ -1,0 +1,29 @@
+@use "_vars";
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -3em;
+    z-index: 2;
+  }
+
+  &__text-primary {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  &__text-secondary {
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 3px 0;
+  }
+}
