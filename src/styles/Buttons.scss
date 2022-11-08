@@ -1,8 +1,7 @@
 @use "_vars";
 
-.btn__discover {
+.btn__medium {
   width: 15rem;
-  background-color: transparent;
   border: 3px solid var(--secondary-color);
   color: var(--secondary-color);
   font-weight: 800;
@@ -11,6 +10,12 @@
   margin-top: 1.1rem;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.btn__small {
+  cursor: pointer;
+  width: 150px;
+  align-self: flex-end;
 }
 
 .diagonal {

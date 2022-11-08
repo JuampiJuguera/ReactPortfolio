@@ -1,6 +1,6 @@
 import React from "react";
+import { Buttons } from "./Buttons";
 import image from "../assets/KnowMe.png";
-import "../styles/DiscoverBtn.scss";
 import "../styles/About.scss";
 
 const KnowMe = () => {
@@ -14,7 +14,7 @@ const KnowMe = () => {
         lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
         lorem lorem lorem loremlorem lorem lorem lorem
       </p>
-      <button className="btn__cv btn__discover diagonal">Download CV</button>
+      <Buttons size={"M"} label={"Download CV"}></Buttons>;
     </article>
   );
 };
