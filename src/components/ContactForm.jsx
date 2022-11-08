@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Contact.scss";
+import { Buttons } from "./Buttons";
 
 // TODO: https://react-hook-form.com/ migrar
 const ContactForm = () => {
@@ -29,9 +30,7 @@ const ContactForm = () => {
         name="textbox"
         placeholder="Enter your text"
       />
-      <button type="submit" className="diagonal btn__submit">
-        SEND
-      </button>
+      <Buttons size={"S"} label={"SEND"}></Buttons>
     </form>
   );
 };
