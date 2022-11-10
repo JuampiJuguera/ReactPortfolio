@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/Contact.scss";
 import { Buttons } from "./Buttons";
 
-// TODO: https://react-hook-form.com/ migrar
 const ContactForm = () => {
   return (
     <form className="contact__container">
