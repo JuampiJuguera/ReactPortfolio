@@ -3,6 +3,7 @@ import { ButtonGroup } from "../components/ButtonGroup";
 import image2 from "../assets/Project1.png";
 import "../styles/Projects.scss";
 import { ProjectList } from "../components/ProjectList";
+import { Button } from "../components/Button";
 
 const Project = {
   All: "All",

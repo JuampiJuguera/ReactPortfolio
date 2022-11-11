@@ -3,7 +3,7 @@ import "../styles/Background.scss";
 
 const IconsBackground = () => {
   return (
-    <React.Fragment>
+    <>
       <div className="container__icons-1">
         <i className="fa-brands fa-html5" />
         <i className="fa-solid fa-code" />
@@ -168,7 +168,7 @@ const IconsBackground = () => {
         <i className="fa-solid fa-shield-halved" />
         <i className="fa-solid fa-database" />
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Buttons } from "./Buttons";
+import { Button } from "./Button.jsx";
 import image from "../assets/KnowMe.png";
 import "../styles/About.scss";
 
@@ -14,7 +14,7 @@ const KnowMe = () => {
         lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
         lorem lorem lorem loremlorem lorem lorem lorem
       </p>
-      <Buttons size={"M"} label={"Download CV"}></Buttons>;
+      <Button size={"M"} label={"Download CV"}></Button>;
     </article>
   );
 };

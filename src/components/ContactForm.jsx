@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Contact.scss";
-import { Buttons } from "./Buttons";
+import { Button } from "./Button.jsx";
 
 const ContactForm = () => {
   return (
@@ -29,7 +29,7 @@ const ContactForm = () => {
         name="textbox"
         placeholder="Enter your text"
       />
-      <Buttons size={"S"} label={"SEND"}></Buttons>
+      <Button size={"S"} label={"SEND"}></Button>
     </form>
   );
 };
