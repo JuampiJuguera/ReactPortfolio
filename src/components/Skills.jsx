@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { opacity, initiateAnimation } from "../components/animations";
 import "../styles/Skills.scss";
 
 const skillClassName = [
@@ -17,11 +20,18 @@ const Skills = ({ skillBtnList, skillSelected, onClick }) => {
   const handleOnClick = (btnName) => {
     onClick(btnName);
   };
+  const control = useAnimation();
+  const [ref, inView] = useInView();
 
+  initiateAnimation(control, inView);
   return (
     <div className="skills__container">
       {skillClassName.map((skillIcon, i) => (
-        <i
+        <motion.i
+          ref={ref}
+          variants={opacity}
+          initial="hidden"
+          animate={control}
           key={skillIcon}
           className={`${skillIcon} ${
             skillSelected === skillBtnList[i] ? `active${i}` : ""

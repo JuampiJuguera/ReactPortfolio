@@ -1,6 +1,6 @@
 import React from "react";
 import { Background } from "../components/Background";
-import { DiscoverBtn } from "../components/DiscoverBtn";
+import { Button } from "../components/Button.jsx";
 import "../styles/Global.scss";
 import "../styles/Home.scss";
 
@@ -13,7 +13,7 @@ const Home = () => {
         <p className="home__text-primary">Hi! </p>
         <span className="home__text-secondary">I'm {NAME}</span>
         <p className="home__text-primary"> FRONTEND DEVELOPER</p>
-        <DiscoverBtn />
+        <Button size={"M"} label={"DISCOVER"} url={"#about"}></Button>
       </div>
       <Background />
     </section>

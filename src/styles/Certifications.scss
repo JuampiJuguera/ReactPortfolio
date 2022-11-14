@@ -24,6 +24,7 @@
 }
 
 .certificate {
+  animation: 1s ease bottomToTop;
   background-color: var(--light-gray);
   width: 800px;
   height: 130px;

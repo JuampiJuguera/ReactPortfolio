@@ -3,23 +3,31 @@ import "../styles/Menu.scss";
 
 const Menu = () => {
   return (
-    <div className="menu">
+    <nav className="menu menu-sticky">
       <div className="menu-div"></div>
-      <div className="menu__container">
-        <a className="menu__container-text" href="#home">
-          HOME
-        </a>
-        <a className="menu__container-text" href="#about">
-          ABOUT
-        </a>
-        <a className="menu__container-text" href="#projects">
-          PROJECTS
-        </a>
-        <a className="menu__container-text" href="#contact">
-          CONTACT
-        </a>
-      </div>
-    </div>
+      <ul className="menu__container">
+        <li>
+          <a className="menu__container-text" href="#home">
+            HOME
+          </a>
+        </li>
+        <li>
+          <a className="menu__container-text" href="#about">
+            ABOUT
+          </a>
+        </li>
+        <li>
+          <a className="menu__container-text" href="#projects">
+            PROJECTS
+          </a>
+        </li>
+        <li>
+          <a className="menu__container-text" href="#contact">
+            CONTACT
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

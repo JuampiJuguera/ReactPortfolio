@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { KnowMe } from "../components/KnowMe";
 import { Skills } from "../components/Skills";
 import { Certifications } from "../components/Certifications";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  initiateAnimation,
+  rightToCenter,
+  leftToCenter,
+  leftToCenterDiv,
+} from "../components/animations";
 import "../styles/About.scss";
 
 const skill = {
@@ -76,7 +84,7 @@ const JS4 = {
   subtitle: "JavaScript Asynchronism",
   school: "PLATZI",
   percentage: "100",
-  title: "Course on Asynchronism with JavaScript",
+  title: "Course on Asynchronism",
   url: "https://platzi.com/p/juampijuguera/curso/3175-asincronismo-js/diploma/detalle/",
 };
 
@@ -84,7 +92,7 @@ const JS5 = {
   subtitle: "JavaScript Asynchronism",
   school: "PLATZI",
   percentage: "100",
-  title: "API REST Consumption with JavaScript",
+  title: "API REST Consumption",
   url: "https://platzi.com/p/juampijuguera/curso/2985-api/diploma/detalle/",
 };
 
@@ -92,7 +100,7 @@ const JS6 = {
   subtitle: "JavaScript Asynchronism",
   school: "PLATZI",
   percentage: "100",
-  title: "Practical Course on API REST Consumption",
+  title: "Practical API REST Consumption",
   url: "https://platzi.com/p/juampijuguera/curso/2986-api-practico/diploma/detalle/",
 };
 
@@ -178,6 +186,7 @@ const certificatesMap = {
   [skill.Webpack]: [Webpack1],
   [skill.TypeScript]: [],
   [skill.Firebase]: [],
+  [skill.empty]: [],
 };
 
 const skillBtnList = [
@@ -190,20 +199,46 @@ const skillBtnList = [
   skill.Webpack,
   skill.TypeScript,
   skill.Firebase,
+  skill.empty,
 ];
 
 const About = () => {
-  const [skillSelected, setSkillSelected] = useState(skill.React);
+  const [skillSelected, setSkillSelected] = useState(skill.empty);
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  initiateAnimation(control, inView);
 
   const onClickSkillGroup = (skillName) => setSkillSelected(skillName);
   return (
     <section id="about" className="about">
-      <div className="about-title">ABOUT ME</div>
-      <div className="about-div"></div>
-      <p className="contact-text">
+      <motion.div
+        ref={ref}
+        variants={leftToCenter}
+        initial="hidden"
+        animate={control}
+        className="about-title"
+      >
+        ABOUT ME
+      </motion.div>
+      <motion.div
+        ref={ref}
+        variants={leftToCenterDiv}
+        initial="hidden"
+        animate={control}
+        className="about-div"
+      ></motion.div>
+      <motion.p
+        ref={ref}
+        variants={rightToCenter}
+        initial="hidden"
+        animate={control}
+        className="contact-text"
+      >
         Click any <span className="contact-text2">skill</span> to see
         certificates
-      </p>
+      </motion.p>
       <Skills
         skillBtnList={skillBtnList}
         skillSelected={skillSelected}

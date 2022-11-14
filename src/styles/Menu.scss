@@ -3,12 +3,18 @@
 .menu {
   background-color: var(--light-gray);
   height: 2.2rem;
+  &-sticky {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+  }
   &-div {
     width: 100%;
     height: 5px;
     background-color: var(--primary-color);
   }
   &__container {
+    list-style-type: none;
     margin: 3px 15em 0 0;
     display: flex;
     justify-content: flex-end;
@@ -28,6 +34,11 @@
 
 .menu__mobile {
   display: none;
+  &-sticky {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+  }
 }
 
 .menu__mobile-bars {

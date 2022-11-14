@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { initiateAnimation, scaleUp } from "../components/animations";
 import "../styles/Projects.scss";
 
 const ProjectList = ({ projects }) => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    }
+  }, [control, inView]);
   return (
-    <div className="projects__container-images">
+    <motion.div
+      ref={ref}
+      variants={scaleUp}
+      initial="hidden"
+      animate={control}
+      className="projects__container-images"
+    >
       {projects &&
         projects.map((project) => {
           return (
@@ -21,7 +38,7 @@ const ProjectList = ({ projects }) => {
             </div>
           );
         })}
-    </div>
+    </motion.div>
   );
 };
 
