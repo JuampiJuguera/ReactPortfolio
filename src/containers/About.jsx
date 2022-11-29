@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { KnowMe } from "../components/KnowMe";
 import { Skills } from "../components/Skills";
 import { Certifications } from "../components/Certifications";
-import "../styles/About.scss";
+import { Title } from "../components/Title";
+import { Subtitle } from "../components/Subtitle";
+import styled from "styled-components";
+import { useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  initiateAnimation,
+  rightToCenter,
+  leftToCenter,
+  leftToCenterDiv,
+} from "../components/animations";
 
 const skill = {
   Html: "Html",
@@ -76,7 +86,7 @@ const JS4 = {
   subtitle: "JavaScript Asynchronism",
   school: "PLATZI",
   percentage: "100",
-  title: "Course on Asynchronism with JavaScript",
+  title: "Course on Asynchronism",
   url: "https://platzi.com/p/juampijuguera/curso/3175-asincronismo-js/diploma/detalle/",
 };
 
@@ -84,7 +94,7 @@ const JS5 = {
   subtitle: "JavaScript Asynchronism",
   school: "PLATZI",
   percentage: "100",
-  title: "API REST Consumption with JavaScript",
+  title: "API REST Consumption",
   url: "https://platzi.com/p/juampijuguera/curso/2985-api/diploma/detalle/",
 };
 
@@ -92,7 +102,7 @@ const JS6 = {
   subtitle: "JavaScript Asynchronism",
   school: "PLATZI",
   percentage: "100",
-  title: "Practical Course on API REST Consumption",
+  title: "Practical API REST Consumption",
   url: "https://platzi.com/p/juampijuguera/curso/2986-api-practico/diploma/detalle/",
 };
 
@@ -169,7 +179,7 @@ const Webpack1 = {
 };
 
 const certificatesMap = {
-  [skill.Html]: [Html1, Html2, Html3],
+  [skill.Html]: [Html2, Html3, Html1],
   [skill.CSS]: [Html2, Html3, CSS1],
   [skill.Sass]: [CSS1],
   [skill.JavaScript]: [JS1, JS2, JS8, JS4, JS5, JS6, JS7, JS3],
@@ -178,6 +188,7 @@ const certificatesMap = {
   [skill.Webpack]: [Webpack1],
   [skill.TypeScript]: [],
   [skill.Firebase]: [],
+  [skill.empty]: [],
 };
 
 const skillBtnList = [
@@ -190,33 +201,61 @@ const skillBtnList = [
   skill.Webpack,
   skill.TypeScript,
   skill.Firebase,
+  skill.empty,
 ];
 
+//Component
+
 const About = () => {
-  const [skillSelected, setSkillSelected] = useState(skill.React);
+  const [skillSelected, setSkillSelected] = useState(skill.empty);
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  initiateAnimation(control, inView);
 
   const onClickSkillGroup = (skillName) => setSkillSelected(skillName);
   return (
-    <section id="about" className="about">
-      <div className="about-title">ABOUT ME</div>
-      <div className="about-div"></div>
-      <p className="contact-text">
-        Click any <span className="contact-text2">skill</span> to see
-        certificates
-      </p>
+    <AboutSection id="about">
+      <Title
+        label={"ABOUT ME"}
+        animation1={leftToCenter}
+        animation2={leftToCenterDiv}
+      />
+      <Subtitle
+        animation={rightToCenter}
+        label1={"Click any "}
+        span={"skill "}
+        label2={"to see certificates"}
+      />
       <Skills
         skillBtnList={skillBtnList}
         skillSelected={skillSelected}
         onClick={onClickSkillGroup}
       ></Skills>
-      <div className="about__wrapper">
+      <Wrapper>
         <KnowMe></KnowMe>
         <Certifications
           certificates={certificatesMap[skillSelected]}
         ></Certifications>
-      </div>
-    </section>
+      </Wrapper>
+    </AboutSection>
   );
 };
+
+const AboutSection = styled.section`
+  overflow: hidden;
+  width: 100%;
+  height: 96%;
+  background-color: ${({ theme }) => theme.colors.darkGray1};
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+`;
 
 export { About };
