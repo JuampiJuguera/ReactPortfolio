@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { IconsBackground } from "./iconsBackground";
-import "../styles/Background.scss";
-
-//Solo lo uso para calcular la cantidad de filas con la altura de la pagina, me resulta innecesario hacerlo con las columnas para el ancho
+import styled from "styled-components";
 
 const ICON_SIZE = 128;
 
@@ -29,10 +27,19 @@ const Background = () => {
   };
 
   return (
-    <div className="background">
+    <AnimatedBackground>
       <div className="background__container">{generateIconRows()}</div>
-    </div>
+    </AnimatedBackground>
   );
 };
+
+const AnimatedBackground = styled.div`
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.darkGray1};
+  white-space: nowrap;
+  overflow: hidden;
+`;
 
 export { Background };

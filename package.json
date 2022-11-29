@@ -1,4 +1,5 @@
 {
+  "homepage": "http://JuampiJuguera.github.io/ReactPortfolio",
   "name": "portafolio3",
   "version": "1.0.0",
   "description": "",
@@ -6,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack server --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b deploy -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,14 +20,19 @@
   "bugs": {
     "url": "https://github.com/JuampiJuguera/background/issues"
   },
-  "homepage": "https://github.com/JuampiJuguera/background#readme",
   "dependencies": {
+    "aos": "^2.3.4",
     "babel-loader": "^9.0.1",
+    "classnames": "^2.3.2",
+    "framer-motion": "^7.6.6",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
+    "react-intersection-observer": "^9.4.0",
+    "react-router-dom": "^6.4.3",
+    "styled-components": "^5.3.6",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
@@ -35,6 +43,7 @@
     "@babel/preset-react": "^7.18.6",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
