@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, ButtonSize, ButtonColor } from "./Button.jsx";
 import image from "../assets/KnowMe.png";
+import cv from "../assets/cv.pdf";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { initiateAnimation, leftToCenter } from "../components/animations";
@@ -33,6 +34,8 @@ const KnowMe = () => {
         size={ButtonSize["B"]}
         color={ButtonColor["P"]}
         label={"Download CV"}
+        url={cv}
+        target={"_blank"}
       ></Button>
     </KnowmeContainer>
   );

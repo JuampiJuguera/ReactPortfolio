@@ -27,7 +27,7 @@ const skill = {
 };
 
 const Html1 = {
-  subtitle: "Html fundaments",
+  subtitle: "HTML fundaments",
   school: "FreeCodeCamp",
   percentage: "100",
   title: "Responsive Web Design",
@@ -35,7 +35,7 @@ const Html1 = {
 };
 
 const Html2 = {
-  subtitle: "Html and Css",
+  subtitle: "HTML and CSS",
   school: "PLATZI",
   percentage: "100",
   title: "Frontend Developer Course",
@@ -43,7 +43,7 @@ const Html2 = {
 };
 
 const Html3 = {
-  subtitle: "Html and Css",
+  subtitle: "HTML and CSS",
   school: "PLATZI",
   percentage: "100",
   title: "Frontend Practical Course",

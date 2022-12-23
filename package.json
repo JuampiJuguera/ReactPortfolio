@@ -7,9 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack server --mode development --open",
+    "build": "webpack --mode production",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "webpack --mode production"
+    "deploy": "gh-pages -b deploym -d dist"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/JuampiJuguera/background/issues"
   },
-  "homepage": "https://github.com/JuampiJuguera/background#readme",
   "dependencies": {
     "aos": "^2.3.4",
     "babel-loader": "^9.0.1",
