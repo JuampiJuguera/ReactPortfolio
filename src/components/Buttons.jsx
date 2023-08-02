@@ -9,7 +9,7 @@ const Buttons = ({ size, label, url }) => {
       </a>
     );
   }
-  if (size === "S") {
+  if (size === "S" || size === "T") {
     return (
       <a href={url}>
         <button className=" btn__small diagonal">{label}</button>
